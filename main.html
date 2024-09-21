@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas Variadas Cayendo</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000000; /* Cielo azul claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .flor {
+            position: absolute;
+            font-size: 30px;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            color: yellow;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .mensaje {
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const flores = [
+            '🌻', // Girasol
+            '🌼', // Flor amarilla
+            '🌷', // Tulipán (lo colorearemos de amarillo)
+            '🌹', // Rosa (la colorearemos de amarillo)
+            '🌻', // Girasol
+            '🌼', // Representación de girasol
+        ];
+        const cantidadFlores = 50;
+
+        function crearFlor() {
+            const flor = document.createElement('div');
+            const tipoFlor = flores[Math.floor(Math.random() * flores.length)];
+            flor.innerText = tipoFlor;
+            flor.classList.add('flor');
+            flor.style.left = Math.random() * 100 + 'vw';
+            flor.style.animationDuration = Math.random() * 2 + 3 + 's';
+            flor.style.opacity = Math.random() * 0.5 + 0.5;
+            flor.style.fontSize = Math.random() * 20 + 20 + 'px';
+
+            // Personalización por tipo de flor
+            switch(tipoFlor) {
+                case 'T':
+                    flor.style.transform = 'rotate(180deg)';
+                    flor.style.fontSize = '40px';
+                    break;
+                case 'R':
+                    flor.innerHTML = '&#10047;'; // Código Unicode para una flor estilizada
+                    break;
+                case 'G':
+                    flor.innerHTML = '&#9728;'; // Código Unicode para un sol
+                    break;
+            }
+
+            flor.style.animation = `caida ${Math.random() * 2 + 3}s linear infinite`;
+            
+            document.body.appendChild(flor);
+            
+            setTimeout(() => {
+                flor.remove();
+            }, 5000);
+        }
+
+        for (let i = 0; i < cantidadFlores; i++) {
+            setTimeout(crearFlor, i * 10000);
+        }
+
+        setInterval(crearFlor, 30);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes caida {
+                0% {
+                    transform: translateY(-40vh) rotate(0deg);
+                }
+                100% {
+                    transform: translateY(110vh) rotate(720deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Flowers</title>
+</head>
+
+<body>
+    <div class="greetings">
+        <span>H</span>
+        <span>O</span>
+        <span>L</span>
+        <span>A</span>
+        <span>!</span>
+        <span>A</span>
+        <span>N</span>
+        <span>D</span>
+        <span>R</span>
+        <span>E</span>
+        <span>A</span>
+    </div>
+    <style>
+        .description {
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+        .description span {
+            line-height: 1.2; /* Ajusta el espaciado entre líneas */
+            margin: 0; /* Elimina el margen */
+            padding: 0; /* Elimina el relleno */
+            display: inline-block; /* Asegura que el centrado funcione correctamente */
+        }
+    </style>
+    
+    <div class="description">
+        <span>
+                        "Estas flores virtuales van con todo mi cariño,<br>
+            para recordarte lo especial que eres y lo mucho que valoro tu amistad."
+        </span>
+    </div>
+    
+    <div class="button">
+        <button class="botones">
+            <a href="flower.html" style="color: #fff;">¡Si las quieres ver🥹?!</a>
+        </button>
+    </div>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .footer-box {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            color: #5f5e5e; /* Color del texto */
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tu contenido aquí -->
+    
+    <div class="footer-box">
+        JACHS
+    </div>
+</body>
+</html>
